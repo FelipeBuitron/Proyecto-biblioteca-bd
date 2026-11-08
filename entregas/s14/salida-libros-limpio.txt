@@ -1,0 +1,25 @@
+CREATE SCHEMA
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+SET
+BEGIN
+TRUNCATE TABLE
+COPY 33
+DELETE 1
+INSERT 0 32
+UPDATE 32
+UPDATE 0
+INSERT 0 32
+INSERT 0 94
+INSERT 0 0
+COMMIT
+ cargadas | rechazadas 
+----------+------------
+       32 |          0
+(1 row)
+
+ linea | motivo | contenido 
+-------+--------+-----------
+(0 rows)
+

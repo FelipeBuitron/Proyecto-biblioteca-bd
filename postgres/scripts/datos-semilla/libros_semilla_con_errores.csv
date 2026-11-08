@@ -1,0 +1,9 @@
+isbn,titulo,autor,categoria,anio_publicacion,ejemplares_disponibles
+9780000000001,Cien años de soledad (edición duplicada),Gabriel García Márquez,Novela,1967,2
+9780000000033,,Julio Cortázar,Novela,1963,3
+9780000000034,Relato sin ejemplares numéricos,Autor de Prueba,Novela,dos,3
+9780000000035,Relato con año inválido,Autor de Prueba,Novela,MCMXLIX,2
+9780000000036,Relato con columna de más,Autor de Prueba,Novela,1999,2,columna_sobrante
+9780000000037,Relato sin autor,,Novela,2005,1
+,Relato sin ISBN,Autor de Prueba,Novela,2010,1
+9780000000038,Relato con ejemplares negativos,Autor de Prueba,Novela,2015,-3

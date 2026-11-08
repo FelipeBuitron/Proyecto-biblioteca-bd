@@ -1,0 +1,42 @@
+SET
+
+=== REPORTE 1: 20 libros mas prestados ===
+     isbn      |               titulo               |          autor           | total_prestamos 
+---------------+------------------------------------+--------------------------+-----------------
+ 9780000000014 | 1984                               | George Orwell            |               6
+ 9780000000032 | Harry Potter y la piedra filosofal | J.K. Rowling             |               5
+ 9780000000001 | Cien años de soledad               | Gabriel García Márquez   |               4
+ 9780000000017 | El principito                      | Antoine de Saint-Exupéry |               4
+ 9780000000009 | Don Quijote de la Mancha           | Miguel de Cervantes      |               3
+ 9780000000005 | Pedro Páramo                       | Juan Rulfo               |               1
+ 9780000000004 | Rayuela                            | Julio Cortázar           |               1
+(7 rows)
+
+
+=== REPORTE 2: usuario(s) que mas ha(n) leido ===
+ documento  |       nombre        | libros_leidos 
+------------+---------------------+---------------
+ 1000000001 | Mariana Gómez Rojas |             4
+(1 row)
+
+
+=== REPORTE 3: usuarios morosos ===
+ documento  |           nombre           | prestamos_en_mora | dias_mora_maximo 
+------------+----------------------------+-------------------+------------------
+ 1000000014 | Miguel Ángel Herrera Nieto |                 1 |               26
+ 1000000011 | Sofía Suárez Peña          |                 1 |               16
+ 1000000012 | Nicolás Cárdenas Reyes     |                 1 |               11
+ 1000000013 | Gabriela Muñoz Acosta      |                 2 |                7
+(4 rows)
+
+
+=== REPORTE 4: notificacion de prestamos en mora ===
+ id_prestamo |           nombre           |                 correo                 |  telefono  |               titulo               | fecha_vencimiento | dias_mora 
+-------------+----------------------------+----------------------------------------+------------+------------------------------------+-------------------+-----------
+          24 | Miguel Ángel Herrera Nieto | miguel.herrera@correo-ejemplo.edu.co   | 3001000014 | Pedro Páramo                       | 2026-10-13        |        26
+          20 | Sofía Suárez Peña          | sofia.suarez@correo-ejemplo.edu.co     | 3001000011 | 1984                               | 2026-10-23        |        16
+          21 | Nicolás Cárdenas Reyes     | nicolas.cardenas@correo-ejemplo.edu.co | 3001000012 | Don Quijote de la Mancha           | 2026-10-28        |        11
+          22 | Gabriela Muñoz Acosta      | gabriela.munoz@correo-ejemplo.edu.co   | 3001000013 | El principito                      | 2026-11-01        |         7
+          23 | Gabriela Muñoz Acosta      | gabriela.munoz@correo-ejemplo.edu.co   | 3001000013 | Harry Potter y la piedra filosofal | 2026-11-02        |         6
+(5 rows)
+

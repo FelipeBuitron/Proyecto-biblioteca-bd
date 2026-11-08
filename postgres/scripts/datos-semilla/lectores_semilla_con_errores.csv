@@ -1,0 +1,7 @@
+documento,nombres,apellidos,correo,telefono
+1000000001,Mariana,Gómez Rojas (duplicado),mariana.gomez@correo-ejemplo.edu.co,3001000001
+1000000021,Carlos,Peña Londoño,,3001000021
+1000000022,Diana,Salgado Cuervo,diana.salgado-arroba-correo-ejemplo.edu.co,3001000022
+1000000023,Jorge,Restrepo Vélez,jorge.restrepo@correo-ejemplo.edu.co,tres-cero-cero
+,Sin Documento,Prueba Prueba,sin.documento@correo-ejemplo.edu.co,3001000024
+1000000025,,Sin Nombre,sin.nombre@correo-ejemplo.edu.co,3001000025

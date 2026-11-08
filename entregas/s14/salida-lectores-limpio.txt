@@ -1,0 +1,27 @@
+psql:/scripts/carga-lectores.sql:17: NOTICE:  schema "carga" already exists, skipping
+CREATE SCHEMA
+CREATE TABLE
+psql:/scripts/carga-lectores.sql:22: NOTICE:  relation "stg_linea" already exists, skipping
+CREATE TABLE
+CREATE TABLE
+psql:/scripts/carga-lectores.sql:43: NOTICE:  relation "rechazo_carga" already exists, skipping
+SET
+BEGIN
+TRUNCATE TABLE
+COPY 21
+DELETE 1
+INSERT 0 20
+UPDATE 20
+UPDATE 0
+INSERT 0 20
+INSERT 0 0
+COMMIT
+ cargadas | rechazadas 
+----------+------------
+       20 |          0
+(1 row)
+
+ linea | motivo | contenido 
+-------+--------+-----------
+(0 rows)
+

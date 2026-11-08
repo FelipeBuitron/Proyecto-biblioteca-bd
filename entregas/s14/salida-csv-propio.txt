@@ -1,0 +1,32 @@
+psql:/scripts/carga-libros.sql:17: NOTICE:  schema "carga" already exists, skipping
+CREATE SCHEMA
+CREATE TABLE
+psql:/scripts/carga-libros.sql:22: NOTICE:  relation "stg_linea" already exists, skipping
+CREATE TABLE
+psql:/scripts/carga-libros.sql:35: NOTICE:  relation "stg_libro" already exists, skipping
+CREATE TABLE
+psql:/scripts/carga-libros.sql:44: NOTICE:  relation "rechazo_carga" already exists, skipping
+SET
+BEGIN
+TRUNCATE TABLE
+COPY 9
+DELETE 1
+INSERT 0 8
+UPDATE 8
+UPDATE 1
+INSERT 0 5
+INSERT 0 12
+INSERT 0 3
+COMMIT
+ cargadas | rechazadas 
+----------+------------
+        5 |          3
+(1 row)
+
+ linea |           motivo            |                                 contenido                                 
+-------+-----------------------------+---------------------------------------------------------------------------
+     7 | isbn repetido en el archivo | 9789990000001,El viaje de la tortuga (repetido),Ana Beltran,Novela,2018,3
+     8 | año en el futuro            | 9789990000006,Libro del futuro,Autor de Prueba,Novela,2031,1
+     9 | isbn no tiene 13 dígitos    | 978999000007,Libro con ISBN corto,Autor de Prueba,Novela,2015,1
+(3 rows)
+

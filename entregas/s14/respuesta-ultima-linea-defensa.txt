@@ -1,0 +1,12 @@
+Prueba de la última línea de defensa
+
+Comenté la regla del CASE que valida que el ISBN tenga 13 dígitos y cargué un archivo con 2 libros válidos y 1 con un ISBN de 12 dígitos. La fila mala pasó la validación, llegó a la tabla final y la rechazó el CHECK ck_libro_isbn.
+
+¿Qué pasó con las demás filas de esa carga?
+Ninguna entró. El error ocurrió dentro de la transacción y se deshizo toda la carga, así que los 2 libros válidos tampoco se cargaron. El conteo de libros siguió en 37.
+
+¿Y con la bitácora?
+No registró nada de esa carga: siguió en 23 registros. El error ocurre en el paso de inserción en la tabla final, antes del paso que escribe los rechazos.
+
+Conclusión
+Las restricciones del esquema evitan que entren datos inválidos, pero no sirven como validador de la carga. Sin la validación previa, una sola fila mala impide cargar las buenas y no queda registro de por qué falló.

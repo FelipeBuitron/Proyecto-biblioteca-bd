@@ -1,0 +1,37 @@
+CREATE SCHEMA
+psql:/scripts/carga-libros.sql:17: NOTICE:  schema "carga" already exists, skipping
+psql:/scripts/carga-libros.sql:22: NOTICE:  relation "stg_linea" already exists, skipping
+CREATE TABLE
+CREATE TABLE
+psql:/scripts/carga-libros.sql:35: NOTICE:  relation "stg_libro" already exists, skipping
+psql:/scripts/carga-libros.sql:44: NOTICE:  relation "rechazo_carga" already exists, skipping
+CREATE TABLE
+SET
+BEGIN
+TRUNCATE TABLE
+COPY 9
+DELETE 1
+INSERT 0 8
+UPDATE 8
+UPDATE 0
+INSERT 0 0
+INSERT 0 0
+INSERT 0 8
+COMMIT
+ cargadas | rechazadas 
+----------+------------
+        0 |          8
+(1 row)
+
+ linea |              motivo              |                                          contenido                                          
+-------+----------------------------------+---------------------------------------------------------------------------------------------
+     2 | isbn ya existe en el catálogo    | 9780000000001,Cien años de soledad (edición duplicada),Gabriel García Márquez,Novela,1967,2
+     3 | título vacío                     | 9780000000033,,Julio Cortázar,Novela,1963,3
+     4 | año no numérico                  | 9780000000034,Relato sin ejemplares numéricos,Autor de Prueba,Novela,dos,3
+     5 | año no numérico                  | 9780000000035,Relato con año inválido,Autor de Prueba,Novela,MCMXLIX,2
+     6 | tiene 7 columnas, se esperaban 6 | 9780000000036,Relato con columna de más,Autor de Prueba,Novela,1999,2,columna_sobrante
+     7 | autor vacío                      | 9780000000037,Relato sin autor,,Novela,2005,1
+     8 | isbn vacío                       | ,Relato sin ISBN,Autor de Prueba,Novela,2010,1
+     9 | ejemplares negativo              | 9780000000038,Relato con ejemplares negativos,Autor de Prueba,Novela,2015,-3
+(8 rows)
+

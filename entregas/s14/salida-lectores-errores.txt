@@ -1,0 +1,34 @@
+psql:/scripts/carga-lectores.sql:17: NOTICE:  schema "carga" already exists, skipping
+CREATE SCHEMA
+psql:/scripts/carga-lectores.sql:22: NOTICE:  relation "stg_linea" already exists, skipping
+CREATE TABLE
+CREATE TABLE
+psql:/scripts/carga-lectores.sql:34: NOTICE:  relation "stg_lector" already exists, skipping
+psql:/scripts/carga-lectores.sql:43: NOTICE:  relation "rechazo_carga" already exists, skipping
+CREATE TABLE
+SET
+BEGIN
+TRUNCATE TABLE
+COPY 7
+DELETE 1
+INSERT 0 6
+UPDATE 6
+UPDATE 0
+INSERT 0 0
+INSERT 0 6
+COMMIT
+ cargadas | rechazadas 
+----------+------------
+        0 |          6
+(1 row)
+
+ linea |                   motivo                    |                                         contenido                                         
+-------+---------------------------------------------+-------------------------------------------------------------------------------------------
+     2 | documento ya existe                         | 1000000001,Mariana,Gómez Rojas (duplicado),mariana.gomez@correo-ejemplo.edu.co,3001000001
+     3 | correo vacío                                | 1000000021,Carlos,Peña Londoño,,3001000021
+     4 | correo mal formado                          | 1000000022,Diana,Salgado Cuervo,diana.salgado-arroba-correo-ejemplo.edu.co,3001000022
+     5 | teléfono no numérico o de longitud inválida | 1000000023,Jorge,Restrepo Vélez,jorge.restrepo@correo-ejemplo.edu.co,tres-cero-cero
+     6 | documento vacío                             | ,Sin Documento,Prueba Prueba,sin.documento@correo-ejemplo.edu.co,3001000024
+     7 | nombres vacío                               | 1000000025,,Sin Nombre,sin.nombre@correo-ejemplo.edu.co,3001000025
+(6 rows)
+
