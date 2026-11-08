@@ -1,0 +1,70 @@
+Enum tipo_usuario {
+  lector
+  bibliotecario
+  administrador
+  auditor
+}
+
+Enum estado_ejemplar {
+  disponible
+  prestado
+  baja
+}
+
+Table libro {
+  isbn varchar [primary key]
+  titulo varchar [not null]
+  autor varchar [not null]
+  editorial varchar [not null]
+  ano integer [not null]
+  activo boolean [not null, default: true]
+}
+
+Table ejemplar {
+  id_ejemplar varchar [primary key]
+  isbn varchar [not null]
+  estado estado_ejemplar [not null, default: 'disponible']
+}
+Ref: ejemplar.isbn > libro.isbn
+
+Table usuario {
+  id_usuario integer [primary key]
+  nombre varchar [not null]
+  direccion varchar
+  telefono varchar
+  correo varchar [unique]
+  tipo tipo_usuario [not null]
+  activo boolean [not null, default: true]
+}
+
+Table cuenta {
+  id_cuenta integer [primary key]
+  nombre_usuario varchar [not null, unique]
+  contrasena varchar [not null]
+  activa boolean [not null, default: true]
+  id_usuario integer [not null, unique]
+  creada_por integer
+}
+Ref: cuenta.id_usuario - usuario.id_usuario
+Ref: cuenta.creada_por > cuenta.id_cuenta
+
+Table prestamo {
+  id_prestamo integer [primary key]
+  id_ejemplar varchar [not null]
+  id_lector integer [not null]
+  id_bibliotecario integer [not null]
+  fecha_prestamo date [not null]
+  fecha_vencimiento date [not null]
+}
+Ref: prestamo.id_ejemplar > ejemplar.id_ejemplar
+Ref: prestamo.id_lector > usuario.id_usuario
+Ref: prestamo.id_bibliotecario > usuario.id_usuario
+
+Table devolucion {
+  id_devolucion integer [primary key]
+  id_prestamo integer [not null, unique]
+  id_bibliotecario integer [not null]
+  fecha_devolucion date [not null]
+}
+Ref: devolucion.id_prestamo - prestamo.id_prestamo
+Ref: devolucion.id_bibliotecario > usuario.id_usuario
