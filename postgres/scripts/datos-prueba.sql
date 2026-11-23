@@ -67,17 +67,12 @@ INSERT INTO plan_prestamo VALUES
 
 -- 3. Prestamos: los registra la bibliotecaria Carolina (solo si aun no hay prestamos)
 INSERT INTO prestamo (id_ejemplar, id_lector, id_bibliotecario,
-                      fecha_prestamo, fecha_vencimiento, estado)
+                      fecha_prestamo, fecha_vencimiento)
 SELECT p.id_ejemplar,
        l.id_usuario,
        b.id_usuario,
        current_date - p.dias_atras,
-       current_date - p.dias_atras + p.dias_plazo,
-       CASE
-         WHEN p.devuelto_tras IS NOT NULL                 THEN 'devuelto'
-         WHEN current_date - p.dias_atras + p.dias_plazo < current_date THEN 'vencido'
-         ELSE 'activo'
-       END
+       current_date - p.dias_atras + p.dias_plazo
 FROM plan_prestamo p
 JOIN usuario l ON l.documento = p.doc_lector
 JOIN usuario b ON b.documento = '2000000001'
