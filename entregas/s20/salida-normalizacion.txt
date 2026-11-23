@@ -1,0 +1,38 @@
+SET
+=== ANTES: estado guardado vs estado calculado ===
+ estado_guardado | estado_calculado | prestamos 
+-----------------+------------------+-----------
+ activo          | vencido          |         4
+ devuelto        | devuelto         |        15
+ vencido         | vencido          |         5
+(3 rows)
+
+ prestamos_antes 
+-----------------
+              24
+(1 row)
+
+BEGIN
+ALTER TABLE
+ALTER TABLE
+CREATE VIEW
+CREATE VIEW
+COMMIT
+=== DESPUES: conteo de prestamos (debe ser igual al de antes) ===
+ prestamos_despues 
+-------------------
+                24
+(1 row)
+
+=== DESPUES: estado calculado por la vista ===
+  estado  | prestamos 
+----------+-----------
+ devuelto |        15
+ vencido  |         9
+(2 rows)
+
+=== DESPUES: ejemplares descuadrados (debe devolver 0 filas) ===
+ id_ejemplar | estado_guardado | tiene_prestamo_abierto 
+-------------+-----------------+------------------------
+(0 rows)
+
