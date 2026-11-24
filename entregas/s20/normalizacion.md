@@ -79,5 +79,5 @@ El esquema actualizado está en `postgres/init/01_esquema.sql` y se comprobó en
 
 Los cuatro reportes de S16 (`consultas.sql`) se corrieron sobre el esquema nuevo (salida completa en `entregas/S20/salida-consultas-hito3.txt`). Ninguna consulta usaba `prestamo.estado`, porque calculan la mora con las fechas y la tabla `devolucion`, así que no hubo que modificarlas.
 
-- **Reportes 1 y 2:** sin cambios respecto a S16 (*1984* es el libro más prestado, con 6 préstamos; Mariana Gómez Rojas es la lectora con más libros devueltos, con 4). **[CONFIRMAR con `salida-consultas-hito3.txt`.]**
+- **Reportes 1 y 2:** sin cambios respecto a S16 (*1984* es el libro más prestado, con 6 préstamos; Mariana Gómez Rojas es la lectora con más libros devueltos, con 4).
 - **Reportes 3 y 4:** cambian solo porque pasó el tiempo. Los 4 préstamos que el 8 de noviembre seguían vigentes ya vencieron. Hoy hay **7 lectores morosos** (antes 4) y **9 préstamos en mora** (antes 5), y los días de atraso de los demás subieron 15. Es el comportamiento correcto de una mora calculada y es justo lo que una columna guardada no habría hecho.
