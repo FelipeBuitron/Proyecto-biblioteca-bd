@@ -33,7 +33,7 @@ Todas las claves primarias son de **una sola columna**, así que no puede haber 
 | `usuario` | FNBC | Todos los determinantes son claves. Observación de 1FN: `nombre` guarda nombres y apellidos juntos y se acepta por simplicidad, porque ninguna regla del sistema necesita consultarlos por separado |
 | `cuenta` | FNBC | Todos los determinantes son claves |
 | `devolucion` | FNBC | Todos los determinantes son claves |
-| `prestamo` | 3FN, con dos hallazgos | Ver abajo |
+| `prestamo` | FNBC con dos observaciones| Ver abajo |
 
 ### Hallazgos
 
@@ -75,7 +75,7 @@ Todas las claves primarias son de **una sola columna**, así que no puede haber 
 
 ## 6. Esquema después
 
-El esquema actualizado está en `postgres/init/01_esquema.sql` y se comprobó en una base vacía (`prueba_init`). Todas las tablas quedan en FNBC, salvo `prestamo`, que queda en 3FN con la dependencia de `fecha_vencimiento` justificada en la sección 5.
+El esquema actualizado está en `postgres/init/01_esquema.sql` y se comprobó en una base vacía (`prueba_init`). Todas las tablas quedan en FNBC. En prestamo, la posible dependencia fecha_prestamo → fecha_vencimiento se descartó porque el plazo no es fijo (sección 5).
 
 Los cuatro reportes de S16 (`consultas.sql`) se corrieron sobre el esquema nuevo (salida completa en `entregas/S20/salida-consultas-hito3.txt`). Ninguna consulta usaba `prestamo.estado`, porque calculan la mora con las fechas y la tabla `devolucion`, así que no hubo que modificarlas.
 
